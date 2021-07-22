@@ -3,7 +3,7 @@ class Calculator {
         this.topdisplayText = document.querySelector('[data-topdiplay]')
         this.bottondisplayText = document.querySelector('[data-bottondisplay]')
         this.numberBtn = document.querySelectorAll('[data-number]')
-        this.acBtn = document.querySelector('[data-ac]')
+        this.acBtn = document.querySelector('[data-ac]]')
         this.flipBtn = document.querySelector('[data-flip]')
         this.operationBtn = document.querySelectorAll('[data-operation]')
         this.equalsBtn = document.querySelector('[data-equals]')
@@ -30,7 +30,7 @@ class Calculator {
         })
         this.operationBtn.forEach(button => {
             button.addEventListener('click', () => {
-                this.pickoperation(button.innerText)
+                this.pickoperation(button.innerHTML)
                 this.updatedisplay()
             })
         })
@@ -44,18 +44,11 @@ class Calculator {
         })
     }
     appendnumber(number) {
-        if (number === ',' && this.bottondisplay.includes(',')) return
-        if (number === ',' && this.bottondisplay === "") {
-            this.bottondisplay = '0,'
+        if (number === '.' && this.bottondisplay.includes('.')) return
+        if (number === '.' && this.bottondisplay === "") {
+            this.bottondisplay = '0.'
             this.bottondisplay = this.bottondisplay.toString().slice(0, -1)
-        }
-        /* if (this.bottondisplay === '0,,'){
-            this.bottondisplay = this.bottondisplay.toString().slice(0, -1)
-        } 
-        if (this.bottondisplay == 0) {
-            this.bottondisplay = ''
-        }*/
-
+        }        
         this.bottondisplay = this.bottondisplay.toString() + number.toString()
     }
     ac() {
@@ -113,4 +106,3 @@ class Calculator {
     }
 }
 let calculator = new Calculator()
-
